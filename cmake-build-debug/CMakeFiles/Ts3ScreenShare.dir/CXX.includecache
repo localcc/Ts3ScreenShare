@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/plugin.h
+
+../libs/ts3client-pluginsdk/include/plugin_definitions.h
+
+../libs/ts3client-pluginsdk/include/teamlog/logtypes.h
+
+../libs/ts3client-pluginsdk/include/teamspeak/clientlib_publicdefinitions.h
+
+../libs/ts3client-pluginsdk/include/teamspeak/public_definitions.h
+teamlog/logtypes.h
+../libs/ts3client-pluginsdk/include/teamspeak/teamlog/logtypes.h
+stdint.h
+-
+
+../libs/ts3client-pluginsdk/include/ts3_functions.h
+teamspeak/clientlib_publicdefinitions.h
+../libs/ts3client-pluginsdk/include/teamspeak/clientlib_publicdefinitions.h
+teamspeak/public_definitions.h
+../libs/ts3client-pluginsdk/include/teamspeak/public_definitions.h
+plugin_definitions.h
+../libs/ts3client-pluginsdk/include/plugin_definitions.h
+
+/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp
+Windows.h
+-
+plugin.h
+-
+cstddef
+-
+ts3_functions.h
+-
+memory
+-
+iostream
+-
+cstring
+-
+

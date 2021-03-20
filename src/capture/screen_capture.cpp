@@ -20,34 +20,38 @@ int32_t screen_capture::start() {
 
     this->running = true;
 
-    AVFrame* frame = av_frame_alloc();
-    AVPacket* packet = av_packet_alloc();
+    this->captureThread = std::thread([&](){
+        AVFrame* frame = av_frame_alloc();
+        AVPacket* packet = av_packet_alloc();
 
-    auto* formatContext = this->input.getFormatContext();
-    auto* codecContext = this->codec.getCodecContext();
+        auto* formatContext = this->input.getFormatContext();
+        auto* codecContext = this->codec.getCodecContext();
 
-    auto* const dummyData = new uint8_t[10];
+        auto* const dummyData = new uint8_t[10];
 
 
-    while(av_read_frame(formatContext, packet) > -1 && this->running) {
-        res = avcodec_send_packet(codecContext, packet);
-        if(res == AVERROR(EAGAIN)) {
-            continue;
+        while(av_read_frame(formatContext, packet) > -1 && this->running) {
+            res = avcodec_send_packet(codecContext, packet);
+            if(res == AVERROR(EAGAIN)) {
+                continue;
+            }
+            //todo: handle other results differently but i don't know how for now
+
+            av_packet_unref(packet);
+
+            res = avcodec_receive_frame(codecContext, frame);
+            if(res == AVERROR(EAGAIN)) {
+                continue;
+            }
+            //todo: handle other results differently but i don't know how for now
+
+            this->client->sock_write(dummyData, 10);
         }
-        //todo: handle other results differently but i don't know how for now
 
-        av_packet_unref(packet);
-
-        res = avcodec_receive_frame(codecContext, frame);
-        if(res == AVERROR(EAGAIN)) {
-            continue;
-        }
-        //todo: handle other results differently but i don't know how for now
-
-        this->client->sock_write(dummyData, 10);
-    }
-    av_packet_free(&packet);
-    av_frame_free(&frame);
+        delete[] dummyData;
+        av_packet_free(&packet);
+        av_frame_free(&frame);
+    });
 
     return 0;
 }
@@ -55,4 +59,5 @@ int32_t screen_capture::start() {
 void screen_capture::stop() {
     //todo: notify server about stopping
     this->running = false;
+    this->captureThread.join();
 }

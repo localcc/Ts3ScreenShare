@@ -1,3 +1,0 @@
-/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir

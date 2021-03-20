@@ -25,6 +25,7 @@ extern "C" {
     PLUGINS_EXPORTDLL void ts3plugin_initMenus(struct PluginMenuItem*** menuItems, char** menuIcon);
     PLUGINS_EXPORTDLL void ts3plugin_onMenuItemEvent(uint64_t serverConnectionHandlerID, enum PluginMenuType type, int menuItemId, uint64_t selectedItemId);
 
+    PLUGINS_EXPORTDLL void ts3plugin_onConnectStatusChangeEvent(uint64 serverConnectionHandlerID, int newStatus, unsigned int errorNumber);
 
     PLUGINS_EXPORTDLL void ts3plugin_freeMemory(void* data);
 }

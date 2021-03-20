@@ -12,6 +12,7 @@ extern "C" {
 }
 #include <string>
 #include <memory>
+#include <thread>
 
 class screen_capture {
 public:
@@ -25,6 +26,7 @@ private:
     bool running;
 
     std::shared_ptr<udp_client> client;
+    std::thread captureThread;
     avinput input;
     avcodec codec;
 };

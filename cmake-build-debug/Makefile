@@ -143,35 +143,140 @@ Ts3ScreenShare/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/build
 .PHONY : Ts3ScreenShare/fast
 
+src/capture/avcodec.o: src/capture/avcodec.cpp.o
+
+.PHONY : src/capture/avcodec.o
+
 # target to build an object file
-src/network/udp_client.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o
+src/capture/avcodec.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o
+.PHONY : src/capture/avcodec.cpp.o
+
+src/capture/avcodec.i: src/capture/avcodec.cpp.i
+
+.PHONY : src/capture/avcodec.i
+
+# target to preprocess a source file
+src/capture/avcodec.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.i
+.PHONY : src/capture/avcodec.cpp.i
+
+src/capture/avcodec.s: src/capture/avcodec.cpp.s
+
+.PHONY : src/capture/avcodec.s
+
+# target to generate assembly for a file
+src/capture/avcodec.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.s
+.PHONY : src/capture/avcodec.cpp.s
+
+src/capture/avinput.o: src/capture/avinput.cpp.o
+
+.PHONY : src/capture/avinput.o
+
+# target to build an object file
+src/capture/avinput.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o
+.PHONY : src/capture/avinput.cpp.o
+
+src/capture/avinput.i: src/capture/avinput.cpp.i
+
+.PHONY : src/capture/avinput.i
+
+# target to preprocess a source file
+src/capture/avinput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.i
+.PHONY : src/capture/avinput.cpp.i
+
+src/capture/avinput.s: src/capture/avinput.cpp.s
+
+.PHONY : src/capture/avinput.s
+
+# target to generate assembly for a file
+src/capture/avinput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.s
+.PHONY : src/capture/avinput.cpp.s
+
+src/capture/screen_capture.o: src/capture/screen_capture.cpp.o
+
+.PHONY : src/capture/screen_capture.o
+
+# target to build an object file
+src/capture/screen_capture.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o
+.PHONY : src/capture/screen_capture.cpp.o
+
+src/capture/screen_capture.i: src/capture/screen_capture.cpp.i
+
+.PHONY : src/capture/screen_capture.i
+
+# target to preprocess a source file
+src/capture/screen_capture.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.i
+.PHONY : src/capture/screen_capture.cpp.i
+
+src/capture/screen_capture.s: src/capture/screen_capture.cpp.s
+
+.PHONY : src/capture/screen_capture.s
+
+# target to generate assembly for a file
+src/capture/screen_capture.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.s
+.PHONY : src/capture/screen_capture.cpp.s
+
+src/network/udp_client.o: src/network/udp_client.cpp.o
+
 .PHONY : src/network/udp_client.o
 
-# target to preprocess a source file
-src/network/udp_client.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.i
+# target to build an object file
+src/network/udp_client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o
+.PHONY : src/network/udp_client.cpp.o
+
+src/network/udp_client.i: src/network/udp_client.cpp.i
+
 .PHONY : src/network/udp_client.i
 
-# target to generate assembly for a file
-src/network/udp_client.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.s
+# target to preprocess a source file
+src/network/udp_client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.i
+.PHONY : src/network/udp_client.cpp.i
+
+src/network/udp_client.s: src/network/udp_client.cpp.s
+
 .PHONY : src/network/udp_client.s
 
-# target to build an object file
-src/plugin.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.o
+# target to generate assembly for a file
+src/network/udp_client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.s
+.PHONY : src/network/udp_client.cpp.s
+
+src/plugin.o: src/plugin.cpp.o
+
 .PHONY : src/plugin.o
 
-# target to preprocess a source file
-src/plugin.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.i
+# target to build an object file
+src/plugin.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o
+.PHONY : src/plugin.cpp.o
+
+src/plugin.i: src/plugin.cpp.i
+
 .PHONY : src/plugin.i
 
-# target to generate assembly for a file
-src/plugin.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.s
+# target to preprocess a source file
+src/plugin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.i
+.PHONY : src/plugin.cpp.i
+
+src/plugin.s: src/plugin.cpp.s
+
 .PHONY : src/plugin.s
+
+# target to generate assembly for a file
+src/plugin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.s
+.PHONY : src/plugin.cpp.s
 
 # Help Target
 help:
@@ -182,6 +287,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Ts3ScreenShare"
+	@echo "... src/capture/avcodec.o"
+	@echo "... src/capture/avcodec.i"
+	@echo "... src/capture/avcodec.s"
+	@echo "... src/capture/avinput.o"
+	@echo "... src/capture/avinput.i"
+	@echo "... src/capture/avinput.s"
+	@echo "... src/capture/screen_capture.o"
+	@echo "... src/capture/screen_capture.i"
+	@echo "... src/capture/screen_capture.s"
 	@echo "... src/network/udp_client.o"
 	@echo "... src/network/udp_client.i"
 	@echo "... src/network/udp_client.s"

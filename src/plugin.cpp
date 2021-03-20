@@ -5,6 +5,7 @@
 #include <Windows.h>
 #include <Winsock2.h>
 #endif
+#include <libavdevice/avdevice.h>
 #include <plugin.h>
 #include <iostream>
 #include <cstring>
@@ -47,6 +48,8 @@ int ts3plugin_init() {
         return res;
     }
 #endif
+    avdevice_register_all();
+
     return 0;
 }
 

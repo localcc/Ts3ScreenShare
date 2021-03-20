@@ -4,8 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o"
-  "/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/plugin.o"
+  "/home/localcc/Github/Ts3ScreenShare/src/capture/avcodec.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o"
+  "/home/localcc/Github/Ts3ScreenShare/src/capture/avinput.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o"
+  "/home/localcc/Github/Ts3ScreenShare/src/capture/screen_capture.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o"
+  "/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o"
+  "/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

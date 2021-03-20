@@ -77,45 +77,93 @@ include CMakeFiles/Ts3ScreenShare.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Ts3ScreenShare.dir/flags.make
 
-CMakeFiles/Ts3ScreenShare.dir/src/plugin.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
-CMakeFiles/Ts3ScreenShare.dir/src/plugin.o: ../src/plugin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/plugin.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/plugin.o -c /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp
+CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
+CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o: ../src/plugin.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o -c /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp
 
-CMakeFiles/Ts3ScreenShare.dir/src/plugin.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/plugin.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp > CMakeFiles/Ts3ScreenShare.dir/src/plugin.i
+CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp > CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.i
 
-CMakeFiles/Ts3ScreenShare.dir/src/plugin.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/plugin.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/plugin.s
+CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.s
 
-CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
-CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o: ../src/network/udp_client.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o -c /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp
+CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
+CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o: ../src/network/udp_client.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o -c /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp
 
-CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp > CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.i
+CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp > CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.i
 
-CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.s
+CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.s
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
+CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o: ../src/capture/screen_capture.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o -c /home/localcc/Github/Ts3ScreenShare/src/capture/screen_capture.cpp
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/capture/screen_capture.cpp > CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.i
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/capture/screen_capture.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.s
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o: ../src/capture/avinput.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o -c /home/localcc/Github/Ts3ScreenShare/src/capture/avinput.cpp
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/capture/avinput.cpp > CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.i
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/capture/avinput.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.s
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o: CMakeFiles/Ts3ScreenShare.dir/flags.make
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o: ../src/capture/avcodec.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o -c /home/localcc/Github/Ts3ScreenShare/src/capture/avcodec.cpp
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/localcc/Github/Ts3ScreenShare/src/capture/avcodec.cpp > CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.i
+
+CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/localcc/Github/Ts3ScreenShare/src/capture/avcodec.cpp -o CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.s
 
 # Object files for target Ts3ScreenShare
 Ts3ScreenShare_OBJECTS = \
-"CMakeFiles/Ts3ScreenShare.dir/src/plugin.o" \
-"CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o"
+"CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o" \
+"CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o" \
+"CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o" \
+"CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o" \
+"CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o"
 
 # External object files for target Ts3ScreenShare
 Ts3ScreenShare_EXTERNAL_OBJECTS =
 
-libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/plugin.o
-libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o
+libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/plugin.cpp.o
+libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.cpp.o
+libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/capture/screen_capture.cpp.o
+libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/capture/avinput.cpp.o
+libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/src/capture/avcodec.cpp.o
 libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/build.make
+libTs3ScreenShare.so: /usr/lib/libavcodec.so
+libTs3ScreenShare.so: /usr/lib/libavformat.so
+libTs3ScreenShare.so: /usr/lib/libavutil.so
 libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libTs3ScreenShare.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libTs3ScreenShare.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ts3ScreenShare.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

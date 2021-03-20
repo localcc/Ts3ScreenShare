@@ -5,7 +5,7 @@
 		<Option title="Ts3ScreenShare"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug"/>
@@ -86,10 +86,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/capture/avcodec.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/capture/avinput.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/capture/screen_capture.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/network/udp_client.h">
 			<Option target="Ts3ScreenShare"/>
 		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/plugin.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/capture/avcodec.cpp">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/capture/avinput.cpp">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/capture/screen_capture.cpp">
 			<Option target="Ts3ScreenShare"/>
 		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp">
@@ -100,6 +118,9 @@
 		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/cmake/FindFFmpeg.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

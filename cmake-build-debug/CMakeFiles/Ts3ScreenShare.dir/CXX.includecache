@@ -6,6 +6,16 @@
 
 #IncludeRegexTransform: 
 
+../include/network/udp_client.h
+Windows.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+cstdint
+-
+
 ../include/plugin.h
 cstddef
 -
@@ -33,6 +43,14 @@ teamspeak/public_definitions.h
 ../libs/ts3client-pluginsdk/include/teamspeak/public_definitions.h
 plugin_definitions.h
 ../libs/ts3client-pluginsdk/include/plugin_definitions.h
+
+/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp
+network/udp_client.h
+-
+stdexcept
+-
+unistd.h
+-
 
 /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp
 Windows.h

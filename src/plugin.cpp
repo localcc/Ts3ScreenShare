@@ -5,7 +5,10 @@
 #include <Windows.h>
 #include <Winsock2.h>
 #endif
+#define __STDC_CONSTANT_MACROS
+extern "C" {
 #include <libavdevice/avdevice.h>
+}
 #include <plugin.h>
 #include <iostream>
 #include <cstring>
@@ -99,7 +102,7 @@ void ts3plugin_initMenus(struct PluginMenuItem*** menuItems, char** menuIcon) {
 }
 
 void ts3plugin_onMenuItemEvent(uint64_t serverConnectionHandlerID, enum PluginMenuType type, int menuItemId, uint64_t selectedItemId) {
-    std::cout << "Menu item" << std::endl;
+    std::cout << "Connection handler: " << serverConnectionHandlerID << " type: " << type << " menuItemId: " << menuItemId << " selectedItemId: " << selectedItemId << std::endl;
 }
 
 

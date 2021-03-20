@@ -22,7 +22,15 @@ int32_t avinput::find_best_stream(enum AVMediaType type, int wanted_stream_nb, i
     return av_find_best_stream(this->formatContext, type, wanted_stream_nb, related_stream, nullptr, flags);
 }
 
-const AVFormatContext * avinput::getFormatContext() const {
+std::optional<AVStream*> avinput::get_best_stream(enum AVMediaType type, int wanted_stream_nb, int related_stream, int flags) {
+    int32_t bestStreamIndex = this->find_best_stream(type, wanted_stream_nb, related_stream, flags);
+    if(bestStreamIndex < 0) {
+        return {};
+    }
+    return std::optional<AVStream*>{this->formatContext->streams[bestStreamIndex]};
+}
+
+AVFormatContext* avinput::getFormatContext() const {
     return this->formatContext;
 }
 

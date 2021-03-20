@@ -1,4 +1,4 @@
-project(Ts3ScreenShare)
+project(Ts3ScreenShare C CXX)
 
 cmake_minimum_required(VERSION 3.17)
 
@@ -20,5 +20,4 @@ add_library(${PROJECT_NAME} SHARED
         include/capture/avinput.h src/capture/avinput.cpp
         include/capture/avcodec.h src/capture/avcodec.cpp)
 
-message(${FFMPEG_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${FFMPEG_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${FFMPEG_LIBRARIES} ${AVDEVICE_LIBRARIES})

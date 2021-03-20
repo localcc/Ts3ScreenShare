@@ -26,6 +26,14 @@ int32_t avcodec::open() {
     return res;
 }
 
+AVCodec * avcodec::getCodec() const {
+    return this->codec;
+}
+
+AVCodecContext * avcodec::getCodecContext() const {
+    return this->codecContext;
+}
+
 avcodec::~avcodec() {
     if(this->opened) {
         avcodec_close(this->codecContext);

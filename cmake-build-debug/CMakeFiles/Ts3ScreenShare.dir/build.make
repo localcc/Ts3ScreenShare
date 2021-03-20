@@ -162,6 +162,7 @@ libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/build.make
 libTs3ScreenShare.so: /usr/lib/libavcodec.so
 libTs3ScreenShare.so: /usr/lib/libavformat.so
 libTs3ScreenShare.so: /usr/lib/libavutil.so
+libTs3ScreenShare.so: /usr/lib/libavdevice.so
 libTs3ScreenShare.so: CMakeFiles/Ts3ScreenShare.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libTs3ScreenShare.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Ts3ScreenShare.dir/link.txt --verbose=$(VERBOSE)

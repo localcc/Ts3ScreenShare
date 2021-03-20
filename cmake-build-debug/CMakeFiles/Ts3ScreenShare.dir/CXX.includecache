@@ -7,6 +7,12 @@
 #IncludeRegexTransform: 
 
 ../include/plugin.h
+cstddef
+-
+ts3_functions.h
+-
+cstdint
+-
 
 ../libs/ts3client-pluginsdk/include/plugin_definitions.h
 
@@ -32,10 +38,6 @@ plugin_definitions.h
 Windows.h
 -
 plugin.h
--
-cstddef
--
-ts3_functions.h
 -
 memory
 -

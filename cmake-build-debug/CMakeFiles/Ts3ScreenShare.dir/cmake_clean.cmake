@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Ts3ScreenShare.dir/main.o"
   "CMakeFiles/Ts3ScreenShare.dir/src/plugin.o"
-  "libTs3ScreenShare.a"
   "libTs3ScreenShare.pdb"
+  "libTs3ScreenShare.so"
 )
 
 # Per-language clean rules from dependency scanning.

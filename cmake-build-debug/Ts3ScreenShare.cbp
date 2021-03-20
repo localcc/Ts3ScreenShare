@@ -38,10 +38,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Ts3ScreenShare">
-				<Option output="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/libTs3ScreenShare.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/libTs3ScreenShare.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/localcc/Github/Ts3ScreenShare/libs/ts3client-pluginsdk/include"/>
@@ -62,10 +62,10 @@
 				</MakeCommands>
 			</Target>
 			<Target title="Ts3ScreenShare/fast">
-				<Option output="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/libTs3ScreenShare.a" prefix_auto="0" extension_auto="0"/>
+				<Option output="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/libTs3ScreenShare.so" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/localcc/Github/Ts3ScreenShare/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="2"/>
+				<Option type="3"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/localcc/Github/Ts3ScreenShare/libs/ts3client-pluginsdk/include"/>
@@ -87,9 +87,6 @@
 			</Target>
 		</Build>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/plugin.h">
-			<Option target="Ts3ScreenShare"/>
-		</Unit>
-		<Unit filename="/home/localcc/Github/Ts3ScreenShare/main.cpp">
 			<Option target="Ts3ScreenShare"/>
 		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp">

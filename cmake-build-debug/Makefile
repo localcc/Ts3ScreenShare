@@ -144,21 +144,6 @@ Ts3ScreenShare/fast:
 .PHONY : Ts3ScreenShare/fast
 
 # target to build an object file
-main.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/main.o
-.PHONY : main.o
-
-# target to preprocess a source file
-main.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/main.i
-.PHONY : main.i
-
-# target to generate assembly for a file
-main.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/main.s
-.PHONY : main.s
-
-# target to build an object file
 src/plugin.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.o
 .PHONY : src/plugin.o
@@ -182,9 +167,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Ts3ScreenShare"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... src/plugin.o"
 	@echo "... src/plugin.i"
 	@echo "... src/plugin.s"

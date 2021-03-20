@@ -5,8 +5,6 @@
 #include <Windows.h>
 #endif
 #include <plugin.h>
-#include <cstddef>
-#include <ts3_functions.h>
 #include <memory>
 #include <iostream>
 #include <cstring>
@@ -59,3 +57,42 @@ void ts3plugin_registerPluginID(const char* id) {
     std::cout << "Plugin id: " << pluginID << std::endl;
 }
 
+
+static struct PluginMenuItem* createMenuItem(enum PluginMenuType type, int id, const char* text, const char* icon) {
+    auto* const menuItem = new PluginMenuItem;
+
+    menuItem->type = type;
+    menuItem->id = id;
+
+    std::copy_n(text, PLUGIN_MENU_BUFSZ, menuItem->text);
+    std::copy_n(icon, PLUGIN_MENU_BUFSZ, menuItem->icon);
+
+    return menuItem;
+}
+
+
+enum {
+    MENU_ID_GLOBAL_START_SCREEN_SHARE,
+    MENU_ID_GLOBAL_STOP_SCREEN_SHARE
+};
+
+
+void ts3plugin_initMenus(struct PluginMenuItem*** menuItems, char** menuIcon) {
+    const size_t itemsAmount = 3;
+    *menuItems = new PluginMenuItem*[itemsAmount];
+
+    int n = 0;
+    (*menuItems)[n++] = createMenuItem(PLUGIN_MENU_TYPE_GLOBAL, MENU_ID_GLOBAL_START_SCREEN_SHARE,  "Start screen share", "");
+    (*menuItems)[n++] = createMenuItem(PLUGIN_MENU_TYPE_GLOBAL, MENU_ID_GLOBAL_STOP_SCREEN_SHARE, "Stop screen share", "");
+
+    (*menuItems)[n] = nullptr;
+}
+
+void ts3plugin_onMenuItemEvent(uint64_t serverConnectionHandlerID, enum PluginMenuType type, int menuItemId, uint64_t selectedItemId) {
+    std::cout << "Menu item" << std::endl;
+}
+
+
+void ts3plugin_freeMemory(void* data) {
+    free(data);
+}

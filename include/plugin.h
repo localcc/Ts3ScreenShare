@@ -6,6 +6,9 @@
 #else
 #define PLUGINS_EXPORTDLL __attribute__ ((visibility("default")))
 #endif
+#include <cstddef>
+#include <ts3_functions.h>
+#include <cstdint>
 
 extern "C" {
     PLUGINS_EXPORTDLL const char* ts3plugin_name();
@@ -18,4 +21,11 @@ extern "C" {
     PLUGINS_EXPORTDLL void ts3plugin_shutdown();
 
     PLUGINS_EXPORTDLL void ts3plugin_registerPluginID(const char* id);
+
+
+    PLUGINS_EXPORTDLL void ts3plugin_initMenus(struct PluginMenuItem*** menuItems, char** menuIcon);
+    PLUGINS_EXPORTDLL void ts3plugin_onMenuItemEvent(uint64_t serverConnectionHandlerID, enum PluginMenuType type, int menuItemId, uint64_t selectedItemId);
+
+
+    PLUGINS_EXPORTDLL void ts3plugin_freeMemory(void* data);
 }

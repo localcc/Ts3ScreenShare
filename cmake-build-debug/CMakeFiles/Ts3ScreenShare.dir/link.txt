@@ -1,2 +1,1 @@
-/usr/bin/ar qc libTs3ScreenShare.a  CMakeFiles/Ts3ScreenShare.dir/main.o CMakeFiles/Ts3ScreenShare.dir/src/plugin.o
-/usr/bin/ranlib libTs3ScreenShare.a
+/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,libTs3ScreenShare.so -o libTs3ScreenShare.so CMakeFiles/Ts3ScreenShare.dir/src/plugin.o 

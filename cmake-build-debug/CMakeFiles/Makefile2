@@ -94,12 +94,12 @@ clean: CMakeFiles/Ts3ScreenShare.dir/clean
 CMakeFiles/Ts3ScreenShare.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target Ts3ScreenShare"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Ts3ScreenShare"
 .PHONY : CMakeFiles/Ts3ScreenShare.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Ts3ScreenShare.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Ts3ScreenShare.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Ts3ScreenShare.dir/rule

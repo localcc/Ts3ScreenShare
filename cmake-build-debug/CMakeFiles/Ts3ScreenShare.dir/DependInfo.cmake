@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o"
   "/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp" "/home/localcc/Github/Ts3ScreenShare/cmake-build-debug/CMakeFiles/Ts3ScreenShare.dir/src/plugin.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

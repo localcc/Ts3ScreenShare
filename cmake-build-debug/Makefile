@@ -144,6 +144,21 @@ Ts3ScreenShare/fast:
 .PHONY : Ts3ScreenShare/fast
 
 # target to build an object file
+src/network/udp_client.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o
+.PHONY : src/network/udp_client.o
+
+# target to preprocess a source file
+src/network/udp_client.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.i
+.PHONY : src/network/udp_client.i
+
+# target to generate assembly for a file
+src/network/udp_client.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.s
+.PHONY : src/network/udp_client.s
+
+# target to build an object file
 src/plugin.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Ts3ScreenShare.dir/build.make CMakeFiles/Ts3ScreenShare.dir/src/plugin.o
 .PHONY : src/plugin.o
@@ -167,6 +182,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Ts3ScreenShare"
+	@echo "... src/network/udp_client.o"
+	@echo "... src/network/udp_client.i"
+	@echo "... src/network/udp_client.s"
 	@echo "... src/plugin.o"
 	@echo "... src/plugin.i"
 	@echo "... src/plugin.s"

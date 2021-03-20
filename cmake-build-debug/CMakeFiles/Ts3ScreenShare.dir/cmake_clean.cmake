@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Ts3ScreenShare.dir/src/network/udp_client.o"
   "CMakeFiles/Ts3ScreenShare.dir/src/plugin.o"
   "libTs3ScreenShare.pdb"
   "libTs3ScreenShare.so"

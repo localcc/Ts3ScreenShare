@@ -86,7 +86,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/network/udp_client.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/include/plugin.h">
+			<Option target="Ts3ScreenShare"/>
+		</Unit>
+		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/network/udp_client.cpp">
 			<Option target="Ts3ScreenShare"/>
 		</Unit>
 		<Unit filename="/home/localcc/Github/Ts3ScreenShare/src/plugin.cpp">

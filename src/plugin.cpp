@@ -3,9 +3,9 @@
 //
 #if defined(WIN32) || defined(__WIN32__) || defined(_WIN32)
 #include <Windows.h>
+#include <Winsock2.h>
 #endif
 #include <plugin.h>
-#include <memory>
 #include <iostream>
 #include <cstring>
 
@@ -40,6 +40,13 @@ void ts3plugin_setFunctionPointers(const struct TS3Functions functions) {
 }
 
 int ts3plugin_init() {
+#if defined(WIN32) || defined(__WIN32__) || defined(_WIN32)
+    WSAData wsaData {};
+    int res = WSAStartup(MAKEWORD(2, 2), &wsaData);
+    if(res != 0) {
+        return res;
+    }
+#endif
     return 0;
 }
 

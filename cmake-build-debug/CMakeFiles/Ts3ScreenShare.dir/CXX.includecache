@@ -37,9 +37,9 @@ plugin_definitions.h
 /home/localcc/Github/Ts3ScreenShare/src/plugin.cpp
 Windows.h
 -
-plugin.h
+Winsock2.h
 -
-memory
+plugin.h
 -
 iostream
 -

@@ -4,10 +4,14 @@
 
 #include <capture/avcodec.h>
 
-avcodec::avcodec(AVCodecParameters* codecParameters) {
-    this->codec = avcodec_find_decoder(codecParameters->codec_id);
+avcodec::avcodec(AVCodecParameters* codecParameters, bool encoder) {
+    if(encoder) {
+        this->codec = avcodec_find_encoder(codecParameters->codec_id);
+    }else {
+        this->codec = avcodec_find_decoder(codecParameters->codec_id);
+    }
     if(!this->codec) {
-        throw std::runtime_error("Failed to init decoder!");
+        throw std::runtime_error("Failed to init codec!");
     }
 
     this->codecContext = avcodec_alloc_context3(this->codec);
@@ -18,6 +22,27 @@ avcodec::avcodec(AVCodecParameters* codecParameters) {
     this->codecContext->pix_fmt = static_cast<AVPixelFormat>(codecParameters->format);
     this->codecContext->width = codecParameters->width;
     this->codecContext->height = codecParameters->height;
+}
+
+avcodec::avcodec(AVCodecID id, AVPixelFormat pixFmt, uint32_t width, uint32_t height, bool encoder)
+{
+    if(encoder) {
+        this->codec = avcodec_find_encoder(id);
+    }else {
+        this->codec = avcodec_find_decoder(id);
+    }
+    if(!this->codec) {
+        throw std::runtime_error("Failed to init codec!");
+    }
+
+    this->codecContext = avcodec_alloc_context3(this->codec);
+    if(!this->codecContext) {
+        throw std::runtime_error("Failed to init codec context!");
+    }
+
+    this->codecContext->pix_fmt = pixFmt;
+    this->codecContext->width = width;
+    this->codecContext->height = height;
 }
 
 int32_t avcodec::open() {

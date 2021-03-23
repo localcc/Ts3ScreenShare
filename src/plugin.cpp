@@ -57,6 +57,7 @@ int ts3plugin_init() {
         return res;
     }
 #endif
+
     avdevice_register_all();
 
     return 0;
@@ -112,44 +113,59 @@ void ts3plugin_initMenus(struct PluginMenuItem*** menuItems, [[maybe_unused]] ch
 std::shared_ptr<udp_client> client;
 std::unique_ptr<screen_capture> capture;
 
-void startScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID) {
+void startScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID, [[maybe_unused]] uint64_t selectedItemId) {
     if(capture == nullptr) {
         capture = std::make_unique<screen_capture>(client, 1680, 1050);
     }
 
     int32_t res = capture->start();
     if(res < 0) {
-        std::cout << "Failed to start screen sharing!" << std::endl;
+        std::cout << "Failed to start screen sharing: " << res <<  std::endl;
         return;
     }
     std::cout << "Started capture!" << std::endl;
 }
 
-void stopScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID) {
+void stopScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID, [[maybe_unused]] uint64_t selectedItemId) {
     if(capture == nullptr) return;
 
     capture->stop();
+}
+
+void startViewScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID, [[maybe_unused]] uint64_t selectedItemId) {
+    if(client == nullptr) return;
+    client->start_watching(0);
 }
 
 void ts3plugin_onConnectStatusChangeEvent([[maybe_unused]] uint64 serverConnectionHandlerID, int newStatus, [[maybe_unused]] unsigned int errorNumber) {
     if(newStatus == STATUS_CONNECTION_ESTABLISHED) {
         std::cout << "Connected to server!" << std::endl;
 
-        client = std::make_shared<udp_client>("127.0.0.1", 30004);
+        client = std::make_shared<udp_client>();
+        bool res = client->sock_connect("127.0.0.1", 30004, 0);
+        std::cout << "Connection result: " << res << std::endl;
+        //todo: show user an error about connecting
     }else if(newStatus == STATUS_DISCONNECTED) {
         std::cout << "Disconnected from server!" << std::endl;
+        if(capture != nullptr) {
+            capture->stop();
+        }
+        if(client != nullptr) {
+            client->disconnect();
+        }
     }
 }
 
-const std::map<int, std::function<void(uint64_t)>> menuEventMap = {
+const std::map<int, std::function<void(uint64_t, uint64_t)>> menuEventMap = {
     {0, &startScreenShare},
-    {1, &stopScreenShare}
+    {1, &stopScreenShare},
+    {2, &startViewScreenShare}
 };
 
 void ts3plugin_onMenuItemEvent(uint64_t serverConnectionHandlerID, [[maybe_unused]] enum PluginMenuType type, int menuItemId, [[maybe_unused]] uint64_t selectedItemId) {
     const auto search = menuEventMap.find(menuItemId);
     if(search == menuEventMap.end()) return;
-    search->second(serverConnectionHandlerID);
+    search->second(serverConnectionHandlerID, selectedItemId);
 }
 
 

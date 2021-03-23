@@ -12,7 +12,8 @@ extern "C" {
 
 class avcodec {
 public:
-    avcodec(AVCodecParameters* codecParameters);
+    avcodec(AVCodecParameters* codecParameters, bool encoder = false);
+    avcodec(AVCodecID id, AVPixelFormat pixFmt, uint32_t width, uint32_t height, bool encoder = false);
 
     int32_t open();
 

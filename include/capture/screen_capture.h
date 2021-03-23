@@ -9,7 +9,10 @@
 #include <capture/avinput.h>
 extern "C" {
 #include <libavformat/avformat.h>
+#include <libswscale/swscale.h>
+#include <libavutil/imgutils.h>
 }
+#include <capture/swscontext.h>
 #include <string>
 #include <memory>
 #include <thread>
@@ -28,5 +31,7 @@ private:
     std::shared_ptr<udp_client> client;
     std::thread captureThread;
     avinput input;
-    avcodec codec;
+    avcodec decoder;
+    avcodec encoder;
+    swscontext scalingContext;
 };

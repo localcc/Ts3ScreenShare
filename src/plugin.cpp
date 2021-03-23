@@ -9,6 +9,9 @@
 extern "C" {
 #include <libavdevice/avdevice.h>
 }
+
+#define ENET_IMPLEMENTATION
+#include <enet.h>
 #include <plugin.h>
 #include <iostream>
 #include <cstring>
@@ -50,13 +53,9 @@ void ts3plugin_setFunctionPointers(const struct TS3Functions functions) {
 }
 
 int ts3plugin_init() {
-#if defined(WIN32) || defined(__WIN32__) || defined(_WIN32)
-    WSAData wsaData {};
-    int res = WSAStartup(MAKEWORD(2, 2), &wsaData);
-    if(res != 0) {
-        return res;
+    if(enet_initialize() != 0) {
+        return -1;
     }
-#endif
 
     avdevice_register_all();
 

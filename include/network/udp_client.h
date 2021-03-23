@@ -22,24 +22,26 @@
 #include <functional>
 #include <network/packets/FlatFramePacket.h>
 #include <window/video_window.h>
+#include <enet.h>
 
 class udp_client {
 public:
     udp_client();
 
-    bool sock_connect(std::string&& hostname, int16_t port, uint16_t clientID);
+    bool sock_connect(std::string&& hostname, uint16_t port, uint16_t clientID);
     bool isConnected();
     void disconnect();
 
     int32_t sock_write(const uint8_t* data, int64_t size) const;
-    int32_t sock_read(uint8_t* data, int64_t size, int32_t flags) const;
 
     void start_watching(uint16_t clientId);
 
     ~udp_client();
 private:
 
-    int32_t sock_fd;
+
+    std::unique_ptr<ENetHost, decltype(&enet_host_destroy)> host;
+    std::unique_ptr<ENetPeer> peer;
 
     std::vector<uint16_t> waitingForCreation;
     std::unordered_map<uint16_t, std::unique_ptr<video_window>> videoWindows;

@@ -19,7 +19,7 @@ void video_window::handle_frame(int64_t pts, int64_t dts, int32_t flags, uint8_t
 {
     AVPacket* packet = av_packet_alloc();
 
-    av_packet_from_data(packet, data + 21, sz - 21);
+    av_packet_from_data(packet, data, sz);
     packet->pts = pts;
     packet->dts = dts;
     packet->flags = flags;

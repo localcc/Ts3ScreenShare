@@ -1,3 +1,9 @@
 [submodule "libs/ts3client-pluginsdk"]
 	path = libs/ts3client-pluginsdk
 	url = server:TeamSpeak-Systems/ts3client-pluginsdk.git
+[submodule "enet"]
+	path = enet
+	url = server:zpl-c/enet.git
+[submodule "libs/enet"]
+	path = libs/enet
+	url = server:zpl-c/enet.git

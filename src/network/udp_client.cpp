@@ -11,75 +11,69 @@
 #include <network/packets/StartWatchingPacket.h>
 #include <network/packets/StopWatchingPacket.h>
 #include <network/packets/StartStreamPacket.h>
-#include <network/packets/AckPacket.h>
 #include <iostream>
 
 
-udp_client::udp_client()
+udp_client::udp_client() : host(NetworkHelper::CreateClientHostEx(2, 0, 0), &enet_host_destroy), running(false)
 {
-    this->sock_fd = socket(AF_INET, SOCK_DGRAM | SOCK_NONBLOCK, IPPROTO_UDP);
-    if(this->sock_fd < 0) {
-        throw std::runtime_error("Failed to create socket!");
-    }
-
-
-
-    this->running = false;
 }
 
-bool udp_client::sock_connect(std::string &&hostname, int16_t port, uint16_t clientId) {
+bool udp_client::sock_connect(std::string &&hostname, uint16_t port, uint16_t clientId) {
     if(this->running) {
         std::cout << "Already connected!" << std::endl;
         return true;
     }
 
-    sockaddr_in addr{};
-    addr.sin_port = port;
-    addr.sin_family = AF_INET;
-    inet_pton(AF_INET, hostname.c_str(), &addr.sin_addr.s_addr);
+    ENetAddress address{};
+    address.port = port;
+    enet_address_set_host(&address, hostname.c_str());
 
-    const auto loginpacket = LoginPacket{.clientId = clientId};
-    size_t size = send(this->sock_fd, &loginpacket, sizeof(LoginPacket), 0);
-    if(size < 0) {
-        return false;
-    }
-
-    AckPacket recvPacket{};
-
-    size = recv(this->sock_fd, &recvPacket, sizeof(AckPacket), MSG_TRUNC);
-    if(size < 0) {
+    this->peer = std::unique_ptr<ENetPeer>(enet_host_connect(this->host.get(), &address, 2, 0));
+    if(this->peer == nullptr) {
         return false;
     }
 
     this->running = true;
-
+    uint16_t cid = clientId;
     this->connectedThread = std::thread([&](){
-        size_t recvSize;
-        while(this->running) {
-            recvSize = recv(this->sock_fd, nullptr, 0, MSG_PEEK | MSG_TRUNC);
-            if(recvSize < 0) {
-                if(errno == EAGAIN) continue;
-            }
+        auto* host = this->host.get();
+        ENetEvent event;
 
-            auto* buf = new uint8_t[recvSize];
-            recv(this->sock_fd, buf, recvSize, 0);
-
-            switch(static_cast<NetworkHelper::EventTypes>(buf[0])) {
-                case NetworkHelper::EVENT_TYPE_CREATE_WINDOW: {
-                    CreateWindowPacket* packet = reinterpret_cast<CreateWindowPacket*>(buf);
-                    this->handle_create_window(packet->clientId, packet->width, packet->height);
+        while(this->running && enet_host_service(host, &event, 0) >= 0) {
+            switch(event.type) {
+                case ENET_EVENT_TYPE_CONNECT: {
+                    LoginPacket packet{.clientId = cid};
+                    this->sock_write(reinterpret_cast<uint8_t*>(&packet), sizeof(LoginPacket));
                     break;
                 }
-                case NetworkHelper::EVENT_TYPE_FRAME: {
-                    FlatFramePacket* packet = reinterpret_cast<FlatFramePacket*>(buf);
-                    this->handle_frame(packet, buf + sizeof(FlatFramePacket), recvSize - sizeof(FlatFramePacket));
+                case ENET_EVENT_TYPE_RECEIVE: {
+                    switch(static_cast<NetworkHelper::EventTypes>(event.packet->data[0])) {
+                        case NetworkHelper::EVENT_TYPE_CREATE_WINDOW: {
+                            CreateWindowPacket* packet = reinterpret_cast<CreateWindowPacket*>(event.packet->data);
+                            this->handle_create_window(packet->clientId, packet->width, packet->height);
+                            break;
+                        }
+                        case NetworkHelper::EVENT_TYPE_FRAME: {
+                            FlatFramePacket* packet = reinterpret_cast<FlatFramePacket*>(event.packet->data);
+                            this->handle_frame(packet, event.packet->data + sizeof(FlatFramePacket), event.packet->dataLength - sizeof(FlatFramePacket));
+                            break;
+                        }
+                        default:
+                            break;
+                    }
+
+                    enet_packet_destroy(event.packet);
                     break;
                 }
-                default:
+                case ENET_EVENT_TYPE_DISCONNECT:
+                    this->running = false;
+                    break;
+                case ENET_EVENT_TYPE_DISCONNECT_TIMEOUT:
+                    this->running = false;
+                    break;
+                case ENET_EVENT_TYPE_NONE:
                     break;
             }
-
-            delete[] buf;
         }
     });
 
@@ -87,19 +81,14 @@ bool udp_client::sock_connect(std::string &&hostname, int16_t port, uint16_t cli
 }
 
 int32_t udp_client::sock_write(const uint8_t *data, int64_t size) const {
-    return send(this->sock_fd, data, size, 0);
+    ENetPacket* packet = enet_packet_create(data, size, 0);
+    return enet_peer_send(this->peer.get(), 0, packet);
 }
-
-int32_t udp_client::sock_read(uint8_t *data, int64_t size, int32_t flags) const {
-    return recv(this->sock_fd, data, size, flags);
-}
-
 
 udp_client::~udp_client() {
     this->running = false;
     this->connectedThread.join();
-    shutdown(this->sock_fd, SHUT_RDWR);
-    close(this->sock_fd);
+    enet_peer_disconnect(this->peer.get(), 0);
 }
 
 void udp_client::start_watching(uint16_t clientId) {

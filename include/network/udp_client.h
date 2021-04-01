@@ -22,6 +22,8 @@
 #include <functional>
 #include <network/packets/FlatFramePacket.h>
 #include <window/video_window.h>
+#include <mutex>
+#include <atomic>
 #include <enet.h>
 
 class udp_client {
@@ -32,16 +34,22 @@ public:
     bool isConnected();
     void disconnect();
 
-    int32_t sock_write(const uint8_t* data, int64_t size) const;
+    int32_t sock_write(const uint8_t* data, int64_t size);
 
     void start_watching(uint16_t clientId);
+    void stop_watching(uint16_t clientId);
 
     ~udp_client();
 private:
 
 
-    std::unique_ptr<ENetHost, decltype(&enet_host_destroy)> host;
+private:
+    //std::mutex mutex;
+
+    //std::unique_ptr<ENetHost, decltype(&enet_host_destroy)> host;
+    std::atomic<ENetHost*> host;
     std::unique_ptr<ENetPeer> peer;
+
 
     std::vector<uint16_t> waitingForCreation;
     std::unordered_map<uint16_t, std::unique_ptr<video_window>> videoWindows;

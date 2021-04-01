@@ -4,6 +4,7 @@
 #include <capture/screen_capture.h>
 #include <iostream>
 #include <network/packets/StartStreamPacket.h>
+#include <network/packets/StopStreamPacket.h>
 
 screen_capture::screen_capture(std::shared_ptr<udp_client> client, int32_t width, int32_t height) :
     running(false),
@@ -11,7 +12,7 @@ screen_capture::screen_capture(std::shared_ptr<udp_client> client, int32_t width
     input(":0.0", "x11grab", {{"video_size", std::to_string(width) + "x" + std::to_string(height)}}),
     decoder(input.get_best_stream(AVMEDIA_TYPE_VIDEO, -1, -1, 0).has_value() ?
                        input.get_best_stream(AVMEDIA_TYPE_VIDEO, -1, -1, 0).value()->codecpar : throw std::runtime_error("s")),
-    encoder(AV_CODEC_ID_H264, AV_PIX_FMT_YUV420P, width, height, true),
+    encoder(AV_CODEC_ID_H264, AV_PIX_FMT_YUV420P, width, height, {{"tune", "zerolatency", 0}, {"preset", "ultrafast", 0}}, true),
     scalingContext(width, height, decoder.getCodecContext()->pix_fmt, width, height, AV_PIX_FMT_YUV420P, SWS_BICUBIC)
     {
 }
@@ -25,6 +26,11 @@ int32_t screen_capture::start() {
 
     this->encoder.getCodecContext()->time_base.den = 1; // fps
     this->encoder.getCodecContext()->time_base.num = 60; // todo: load from config
+    this->encoder.getCodecContext()->bit_rate = 1000 * 1000;
+    this->encoder.getCodecContext()->max_b_frames = 0;
+    this->encoder.getCodecContext()->thread_count = 0;
+    this->encoder.getCodecContext()->gop_size = 250;
+
 
     res = this->encoder.open();
     if(res < 0) {
@@ -48,7 +54,6 @@ int32_t screen_capture::start() {
                 .height = this->decoder.getCodecContext()->height,
                 .pixFmt = this->decoder.getCodecContext()->pix_fmt};
     this->client->sock_write(reinterpret_cast<uint8_t*>(&packet), sizeof(StartStreamPacket));
-
 
     this->captureThread = std::thread([&](){
         AVPacket* packet = av_packet_alloc();
@@ -111,19 +116,16 @@ int32_t screen_capture::start() {
             av_frame_unref(colorFrame);
 
 
-            FlatFramePacket* packet = new FlatFramePacket{.pts = encodedPacket->pts, .dts = encodedPacket->dts, .flags = encodedPacket->flags};
+            auto* flatFramePacket = new FlatFramePacket{.pts = encodedPacket->pts, .dts = encodedPacket->dts, .flags = encodedPacket->flags};
 
             auto* const data = new uint8_t[encodedPacket->size + sizeof(FlatFramePacket)]; // size + pts size + dts size + flags size + header
-            std::move(reinterpret_cast<uint8_t*>(packet), reinterpret_cast<uint8_t*>(packet) + sizeof(FlatFramePacket), data);
-            delete packet;
-            //std::cout << "Size: " << encodedPacket->size << std::endl;
 
-            //std::copy(packet->data, packet->data + packet->size, data + 25);
-            std::move(encodedPacket->data, encodedPacket->data + encodedPacket->size, data + sizeof(FlatFramePacket));
+            std::move(reinterpret_cast<uint8_t*>(flatFramePacket), reinterpret_cast<uint8_t*>(flatFramePacket) + sizeof(FlatFramePacket), data);
+            delete flatFramePacket;
 
+            std::copy(encodedPacket->data, encodedPacket->data + encodedPacket->size, data + sizeof(FlatFramePacket));
 
-            std::cout << static_cast<uint32_t>(data[0]) << std::endl;
-            this->client->sock_write(data, sizeof(FlatFramePacket) + encodedPacket->size);
+            this->client->sock_write(data, encodedPacket->size + sizeof(FlatFramePacket));
 
             delete[] data;
 
@@ -140,7 +142,8 @@ int32_t screen_capture::start() {
 }
 
 void screen_capture::stop() {
-    //todo: notify server about stopping
+    StopStreamPacket packet{};
+    this->client->sock_write(reinterpret_cast<uint8_t*>(&packet), sizeof(StopStreamPacket));
     if(this->running) {
         this->running = false;
         this->captureThread.join();

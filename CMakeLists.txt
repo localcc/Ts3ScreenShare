@@ -32,7 +32,7 @@ add_library(${PROJECT_NAME} SHARED
         include/window/sdl_renderer.h src/window/sdl_renderer.cpp
         include/window/sdl_texture.h src/window/sdl_texture.cpp
         ${packets_src}
-        include/capture/swscontext.h src/capture/swscontext.cpp)
+        include/capture/swscontext.h src/capture/swscontext.cpp )
     message(${SWSCALE_VERSION})
 target_link_libraries(${PROJECT_NAME} ${FFMPEG_LIBRARIES} ${AVUTIL_LIBRARIES} ${SWSCALE_LIBRARIES} ${AVDEVICE_LIBRARIES}  ${SDL_LIBRARIES})
 if(WIN32)

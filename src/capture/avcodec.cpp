@@ -3,8 +3,9 @@
 //
 
 #include <capture/avcodec.h>
+#include <iostream>
 
-avcodec::avcodec(AVCodecParameters* codecParameters, bool encoder) {
+avcodec::avcodec(AVCodecParameters* codecParameters, std::vector<std::tuple<std::string, std::string, int32_t>> opts, bool encoder) {
     if(encoder) {
         this->codec = avcodec_find_encoder(codecParameters->codec_id);
     }else {
@@ -18,13 +19,17 @@ avcodec::avcodec(AVCodecParameters* codecParameters, bool encoder) {
     if(!this->codecContext) {
         throw std::runtime_error("Failed to init codec context!");
     }
+    for(const auto& opt : opts) {
+        std::cout << "Setting opts: " << std::get<0>(opt).c_str() << " " << std::get<1>(opt).c_str() << " " << std::get<2>(opt) << std::endl;
+        av_opt_set(this->codecContext->priv_data, std::get<0>(opt).c_str(), std::get<1>(opt).c_str(), std::get<2>(opt));
+    }
 
     this->codecContext->pix_fmt = static_cast<AVPixelFormat>(codecParameters->format);
     this->codecContext->width = codecParameters->width;
     this->codecContext->height = codecParameters->height;
 }
 
-avcodec::avcodec(AVCodecID id, AVPixelFormat pixFmt, uint32_t width, uint32_t height, bool encoder)
+avcodec::avcodec(AVCodecID id, AVPixelFormat pixFmt, uint32_t width, uint32_t height, std::vector<std::tuple<std::string, std::string, int32_t>> opts, bool encoder)
 {
     if(encoder) {
         this->codec = avcodec_find_encoder(id);
@@ -38,6 +43,11 @@ avcodec::avcodec(AVCodecID id, AVPixelFormat pixFmt, uint32_t width, uint32_t he
     this->codecContext = avcodec_alloc_context3(this->codec);
     if(!this->codecContext) {
         throw std::runtime_error("Failed to init codec context!");
+    }
+
+    for(const auto& opt : opts) {
+        std::cout << "Setting opts: " << std::get<0>(opt).c_str() << " " << std::get<1>(opt).c_str() << " " << std::get<2>(opt) << std::endl;
+        av_opt_set(this->codecContext->priv_data, std::get<0>(opt).c_str(), std::get<1>(opt).c_str(), std::get<2>(opt));
     }
 
     this->codecContext->pix_fmt = pixFmt;

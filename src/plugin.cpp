@@ -133,7 +133,7 @@ void stopScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID, [[mayb
 
 void startViewScreenShare([[maybe_unused]] uint64_t serverConnectionHandlerID, [[maybe_unused]] uint64_t selectedItemId) {
     if(client == nullptr) return;
-    client->start_watching(0);
+    client->start_watching(selectedItemId);
 }
 
 void ts3plugin_onConnectStatusChangeEvent([[maybe_unused]] uint64 serverConnectionHandlerID, int newStatus, [[maybe_unused]] unsigned int errorNumber) {
@@ -141,7 +141,11 @@ void ts3plugin_onConnectStatusChangeEvent([[maybe_unused]] uint64 serverConnecti
         std::cout << "Connected to server!" << std::endl;
 
         client = std::make_shared<udp_client>();
-        bool res = client->sock_connect("127.0.0.1", 30004, 0);
+
+        anyID clientID;
+        ts3Functions.getClientID(serverConnectionHandlerID, &clientID);
+
+        bool res = client->sock_connect("127.0.0.1", 30004, clientID);
         std::cout << "Connection result: " << res << std::endl;
         //todo: show user an error about connecting
     }else if(newStatus == STATUS_DISCONNECTED) {

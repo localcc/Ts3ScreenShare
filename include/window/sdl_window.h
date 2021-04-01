@@ -9,8 +9,12 @@ class sdl_window {
 public:
     sdl_window(const std::string& name, int32_t posX, int32_t posY, uint32_t width, uint32_t height, int32_t flags);
 
+    bool getClosing() const;
+
     ~sdl_window();
-private:
+protected:
+    bool closing;
+    
     friend class sdl_renderer;
 
     SDL_Window* window;

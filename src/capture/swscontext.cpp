@@ -18,3 +18,14 @@ SwsContext* swscontext::get() {
 swscontext::~swscontext() {
     sws_freeContext(this->context);
 }
+
+void swscontext::update(uint32_t srcW, uint32_t srcH, AVPixelFormat srcFormat, uint32_t dstW, uint32_t dstH,
+                            AVPixelFormat dstFormat, int32_t flags) {
+    this->srcW = srcW;
+    this->srcH = srcH;
+    this->srcFormat = srcFormat;
+    this->dstW = dstW;
+    this->dstH = dstH;
+    this->dstFormat = dstFormat;
+    this->flags = flags;
+}

@@ -12,7 +12,8 @@ public:
         EVENT_TYPE_START_WATCHING,
         EVENT_TYPE_STOP_WATCHING,
         EVENT_TYPE_CREATE_WINDOW,
-        EVENT_TYPE_START_STREAM
+        EVENT_TYPE_START_STREAM,
+        EVENT_TYPE_STOP_STREAM,
     };
 
     static ENetHost* CreateHostEx(uint16_t port, size_t clientLim, size_t channelNum, size_t down, size_t up) {

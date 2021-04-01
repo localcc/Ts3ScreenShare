@@ -11,6 +11,5 @@ public:
     ~sdl_texture();
 
 public:
-
     SDL_Texture* tex;
 };

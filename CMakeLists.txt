@@ -12,7 +12,7 @@ find_package(SDL2 REQUIRED)
 include_directories(${LIBS_DIR}/ts3client-pluginsdk/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${FFMPEG_INCLUDE_DIRS})
-include_directories(${SDL_INCLUDE_DIRS})
+include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${LIBS_DIR}/enet/include)
 
 add_subdirectory(${LIBS_DIR})
@@ -33,8 +33,8 @@ add_library(${PROJECT_NAME} SHARED
         include/window/sdl_texture.h src/window/sdl_texture.cpp
         ${packets_src}
         include/capture/swscontext.h src/capture/swscontext.cpp )
-    message(${SWSCALE_VERSION})
-target_link_libraries(${PROJECT_NAME} ${FFMPEG_LIBRARIES} ${AVUTIL_LIBRARIES} ${SWSCALE_LIBRARIES} ${AVDEVICE_LIBRARIES}  ${SDL_LIBRARIES})
+
+target_link_libraries(${PROJECT_NAME} ${FFMPEG_LIBRARIES} ${AVUTIL_LIBRARIES} ${SWSCALE_LIBRARIES} ${AVDEVICE_LIBRARIES} ${SDL2_LIBRARIES})
 if(WIN32)
     target_link_libraries(${PROJECT_NAME} ws2_32 winmm)
 endif()

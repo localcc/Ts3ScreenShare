@@ -1,10 +1,6 @@
 //
 // Created by localcc on 3/19/21.
 //
-#if defined(WIN32) || defined(__WIN32__) || defined(_WIN32)
-#include <Windows.h>
-#include <Winsock2.h>
-#endif
 #define __STDC_CONSTANT_MACROS
 extern "C" {
 #include <libavdevice/avdevice.h>

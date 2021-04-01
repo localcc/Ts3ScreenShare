@@ -4,7 +4,6 @@
 
 #include <network/udp_client.h>
 #include <stdexcept>
-#include <unistd.h>
 #include <network/NetworkHelper.h>
 #include <network/packets/LoginPacket.h>
 #include <network/packets/CreateWindowPacket.h>
